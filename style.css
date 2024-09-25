@@ -1,6 +1,6 @@
 /* set min height: dashboard_container will fill screen */ 
 body, .dashboard_container{
-    min-height: 100vh;
+    max-height: 100%;
 }
 /* ^^if you don't: container will only stretch enough for what's in it */
 
@@ -11,7 +11,7 @@ body, .dashboard_container{
     border-style: solid;
     grid-template-columns: auto;
     grid-template-rows: auto;
-    background-color: grey;
+    background-color: orange;
     grid-template-areas: "s h h h h"
                          "s c c c c"
                          "s c c c c"
@@ -20,17 +20,19 @@ body, .dashboard_container{
 }
 #sidebar{
     grid-area: s;
-    background-color: lightskyblue;
+    background-color: rgb(68, 177, 255);
 }
 #header{
     grid-area: h;
     background-color: white;
-    border-bottom-style: solid;
-    border-bottom-color: rgba(31, 30, 30, 0.489);
+    border-style: dashed;
+    border-color: rgb(255, 149, 0);
+    border-radius: 15px;
+    padding: 5px;
 }
 #content{
     grid-area: c;
-    background-color: lightgray;
+    background-color: rgb(216, 236, 247);
 }
 /* ----------------------------------------- */
 
@@ -42,7 +44,7 @@ body, .dashboard_container{
     grid-template-rows: auto;
     grid-template-areas: ". ." ". dashboard" ". dashboard" ". home" ". profile" ". messages"
                          ". history" ". tasks" ". communities" ". ." ". settings" ". support"
-                        ". privacy" ". ." ". ." ". ." ". ." ". ." ". ." ". ." ". ." ". .";
+                        ". privacy" ". ." ". ." ". ." ". ." ". ." ". ." ". ." ". .";
 }
 
 #dashboard{ grid-area: dashboard;}
@@ -56,23 +58,61 @@ body, .dashboard_container{
 #support{ grid-area: support;}
 #privacy{ grid-area: privacy;}
 
+.dashboard_tab{
+    display:flex;
+    align-items: center;
+    gap: 5px;
+    color: black;
+    padding-right: 10px;
+    
+}
 .sidebar_tabs{
-    color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+    color: black;
+    padding: 10px;
 }
 /* ----------------------------------------- */
 
 /* -----------------HEADER------------------- */
 .header_container{
     display: grid;
+    gap: 15px;
     grid-template-columns: auto;
     grid-template-rows: auto;
     grid-template-areas: ". search search search . notif_logo_name"
                          ". logo_name logo_name . .  buttons";
 }
 #search{grid-area: search;}
-#notif_logo_name{grid-area: notif_logo_name;}
-#logo_name{grid-area: logo_name;}
-#buttons{grid-area: buttons;}
+#notif_logo_name{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    grid-area: notif_logo_name;
+}
+#logo_name{
+    display: flex;
+    align-items: center;
+    gap:5px;
+    grid-area: logo_name;
+}
+#buttons{
+    grid-area: buttons;
+}
+button{
+    background-color: orange;
+    border-radius: 5px;
+    border-width: 3px;
+    border-color: orange;
+}
+button:hover{
+    background-color: orange;
+    border-radius: 5px;
+    border-color: orangered;
+    border-width: 3px;
+}
 /* ----------------------------------------- */
 
 /* ----------------Content------------------ */
@@ -82,11 +122,11 @@ body, .dashboard_container{
     grid-template-rows: auto;
     grid-template-areas: "projects_container projects_container projects_container announcements"
                          "projects_container projects_container projects_container trending";
-    background-color: lightgray;
+    background-color: rgba(22, 69, 122, 0.458);
+    padding: 5px;
 }
 .projects_container{
     grid-area: projects_container;
-    /* border-style: dashed; */
 }
 .announcements{
     grid-area: announcements;
@@ -110,11 +150,15 @@ body, .dashboard_container{
 }
 #card{
     background-color: white;
-    border-style: solid;
+    border-left-style: solid;
     border-left-color: orange;
     border-left-width: 5px;
-    min-height: 30vh;
-    min-width: 30vh;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px;
+    min-width: 40vh; 
+}
+#card h3, p{
+    padding-left: 10px;
 }
 /* ------------------------------------------ */
 
@@ -123,13 +167,24 @@ body, .dashboard_container{
     display: grid;
     grid-template-columns: auto;
     grid-template-rows: auto auto auto;
-    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px;
+    background-color: white;
+    margin: 30px;
+}
+.announcements{
+    padding: 10px;
 }
 #announcement{
     background-color: white;
-    border-style: solid;
-    min-height: 15vh;
-    min-width: 30vh;
+    border-radius: 10px;
+    padding: 10px;
+}
+#middle_announcement{
+    background-color: white;
+    margin: 10px;
+    border-top: solid;
+    border-bottom: solid;
 }
 /* ------------------------------------------ */
 
@@ -138,12 +193,24 @@ body, .dashboard_container{
     display: grid;
     grid-template-columns: auto;
     grid-template-rows: auto auto auto;
-    padding: 30px;
+    padding: 10px;
+    margin: 30px;
+    background-color: white;
+    box-shadow: 2px 2px 10px;
+    border-radius: 10px;
+}
+.trending{
+    padding: 10px;
 }
 #user{
+    display: flex;
     background-color: white;
-    border-style: solid;
-    min-height: 15vh;
-    min-width: 30vh;
+    border-radius: 10px;
+    padding: 10px;
+}
+#middle_user{
+    display: flex;
+    background-color: white;
+    padding: 10px;
 }
 /* ------------------------------------------ */
