@@ -1,0 +1,149 @@
+/* set min height: dashboard_container will fill screen */ 
+body, .dashboard_container{
+    min-height: 100vh;
+}
+/* ^^if you don't: container will only stretch enough for what's in it */
+
+
+/* --------------DASHBOARD---------------- */
+.dashboard_container{
+    display: grid;
+    border-style: solid;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+    background-color: grey;
+    grid-template-areas: "s h h h h"
+                         "s c c c c"
+                         "s c c c c"
+                         "s c c c c"
+                         "s c c c c";
+}
+#sidebar{
+    grid-area: s;
+    background-color: lightskyblue;
+}
+#header{
+    grid-area: h;
+    background-color: white;
+    border-bottom-style: solid;
+    border-bottom-color: rgba(31, 30, 30, 0.489);
+}
+#content{
+    grid-area: c;
+    background-color: lightgray;
+}
+/* ----------------------------------------- */
+
+
+/* ----------------SIDEBAR------------------ */
+.sidebar_container{
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+    grid-template-areas: ". ." ". dashboard" ". dashboard" ". home" ". profile" ". messages"
+                         ". history" ". tasks" ". communities" ". ." ". settings" ". support"
+                        ". privacy" ". ." ". ." ". ." ". ." ". ." ". ." ". ." ". ." ". .";
+}
+
+#dashboard{ grid-area: dashboard;}
+#home{ grid-area: home;}
+#profile{ grid-area: profile;}
+#messages{ grid-area: messages;}
+#history{ grid-area: history;}
+#tasks{ grid-area: tasks;}
+#communities{ grid-area: communities;}
+#settings{ grid-area: settings;}
+#support{ grid-area: support;}
+#privacy{ grid-area: privacy;}
+
+.sidebar_tabs{
+    color: white;
+}
+/* ----------------------------------------- */
+
+/* -----------------HEADER------------------- */
+.header_container{
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+    grid-template-areas: ". search search search . notif_logo_name"
+                         ". logo_name logo_name . .  buttons";
+}
+#search{grid-area: search;}
+#notif_logo_name{grid-area: notif_logo_name;}
+#logo_name{grid-area: logo_name;}
+#buttons{grid-area: buttons;}
+/* ----------------------------------------- */
+
+/* ----------------Content------------------ */
+.content_container{
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+    grid-template-areas: "projects_container projects_container projects_container announcements"
+                         "projects_container projects_container projects_container trending";
+    background-color: lightgray;
+}
+.projects_container{
+    grid-area: projects_container;
+    /* border-style: dashed; */
+}
+.announcements{
+    grid-area: announcements;
+    border-left-style: dashed;
+}
+.trending{
+    grid-area: trending;
+    border-left-style: dashed;
+    border-top-style: dashed;
+}
+/* ----------------------------------------- */
+
+
+/* ----------------Projects------------------ */
+.projects{
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto auto;
+    gap: 30px;
+    padding: 30px;
+}
+#card{
+    background-color: white;
+    border-style: solid;
+    border-left-color: orange;
+    border-left-width: 5px;
+    min-height: 30vh;
+    min-width: 30vh;
+}
+/* ------------------------------------------ */
+
+/* --------------Announcements---------------- */
+.announcements_container{
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto auto auto;
+    padding: 30px;
+}
+#announcement{
+    background-color: white;
+    border-style: solid;
+    min-height: 15vh;
+    min-width: 30vh;
+}
+/* ------------------------------------------ */
+
+/* ----------------Trending------------------ */
+.trending_container{
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto auto auto;
+    padding: 30px;
+}
+#user{
+    background-color: white;
+    border-style: solid;
+    min-height: 15vh;
+    min-width: 30vh;
+}
+/* ------------------------------------------ */
